@@ -1,7 +1,7 @@
 public class IntArray {
-    private int[] intArray;
-    private int numberOfElements;
-    private int i;
+    protected int[] intArray;
+    protected int numberOfElements;
+    protected int i;
 
     public IntArray(int size) {
         intArray = new int[size];
