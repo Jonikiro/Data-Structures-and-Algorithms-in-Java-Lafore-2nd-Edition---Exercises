@@ -23,6 +23,9 @@ public class PrimitiveArrayApp {
 
         ia.printElements();
 
+        ia.getMaxElement();
+        ia.removeMaxElement();
+
         ia.setElement(54, 55);
         ia.setElement(53, 55);
 

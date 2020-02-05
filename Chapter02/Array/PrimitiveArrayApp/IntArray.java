@@ -23,6 +23,22 @@ public class IntArray {
         }
     }
 
+    public int getMaxElement() {
+        if (numberOfElements == 0) {
+            System.out.println("Array is empty.");
+            return -1;
+        }
+    
+        int max = 0;
+        for (int j = 0; j < numberOfElements; j++) {
+            if (intArray[j] > max) {
+                max = intArray[j];
+            }
+        }
+        System.out.println("Max value is " + max + ".");
+        return max;
+    }
+
     public void addElement(int value) {
         if (numberOfElements < intArray.length) {
             intArray[numberOfElements++] = value;
@@ -40,6 +56,13 @@ public class IntArray {
             intArray[i] = 0;
             numberOfElements--;
             System.out.println("Value " + value + " removed.");
+        }
+    }
+
+    public void removeMaxElement() {
+        int value = getMaxElement();
+        if (value != -1) {
+            removeElement(value);
         }
     }
 
