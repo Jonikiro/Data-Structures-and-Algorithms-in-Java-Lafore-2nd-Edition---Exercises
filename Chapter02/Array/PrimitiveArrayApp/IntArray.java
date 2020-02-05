@@ -64,17 +64,22 @@ public class IntArray {
     }
 
     public void noDups() {
-        for (int j = 0; j < intArray.length; j++) {
-            if (intArray[j] == -1) {
-                continue;
-            }
-            for (int k = j + 1; k < intArray.length; k++) {
+        int shiftCount = 0;
+        for (int j = 0; j < numberOfElements; j++) {
+            for (int k = j + 1; k < numberOfElements; k++) {
                 if (intArray[j] == intArray[k]) {
-                    intArray[k] = -1;
+                    shiftCount++;
+                } else {
+                    intArray[k - shiftCount] = intArray[k];
                 }
             }
+            numberOfElements -= shiftCount;
+            while (shiftCount > 0) {
+                shiftCount--;
+                intArray[numberOfElements + shiftCount] = 0;
+            }
         }
-        while (removeElement(-1)) {};
+        System.out.println("All duplicates removed.");
     }
 
     protected boolean searchElement(int value) {
