@@ -5,7 +5,10 @@ public class OrderedIntArray extends IntArray{
 
     @Override
     public void addElement(int value) {
-        if (numberOfElements >= intArray.length) {
+        if (value <= 0) {
+            System.out.println("Must enter values greater than 0.");
+            return;
+        } else if (numberOfElements >= intArray.length) {
             System.out.println("Array is full.");
             return;
         } else if (numberOfElements == 0 || value > intArray[numberOfElements - 1]) {
@@ -26,7 +29,31 @@ public class OrderedIntArray extends IntArray{
     }
 
     @Override
-    public boolean searchElement(int value) {
+    public int getMaxElement() {
+        if (numberOfElements == 0){
+            System.out.println("Array is empty.");
+            return -1;
+        }
+        int max = intArray[numberOfElements - 1];
+        System.out.println("Max value " + max + " found.");
+        return max;
+    }
+
+    public void merge(int[] arrayB) {
+        int[] arrayA = intArray;
+        intArray = new int[intArray.length + arrayB.length];
+        numberOfElements = 0;
+        
+        for (int j = 0; j < arrayA.length; j++) {
+            addElement(arrayA[j]);
+        }
+        for (int j = 0; j < arrayB.length; j++) {
+            addElement(arrayB[j]);
+        }
+    }
+
+    @Override
+    protected boolean searchElement(int value) {
         int lowerBound = 0;
         int upperBound = numberOfElements - 1;
 
