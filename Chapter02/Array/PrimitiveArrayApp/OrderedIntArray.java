@@ -11,9 +11,6 @@ public class OrderedIntArray extends IntArray{
         } else if (numberOfElements >= intArray.length) {
             System.out.println("Array is full.");
             return;
-        } else if (numberOfElements == 0 || value > intArray[numberOfElements - 1]) {
-            System.out.println("Value " + value + " not found.");
-            intArray[numberOfElements] = value;
         } else if (searchElement(value)) {
             System.out.println("Value " + value + " already exists.");
             return;
@@ -54,6 +51,14 @@ public class OrderedIntArray extends IntArray{
 
     @Override
     protected boolean searchElement(int value) {
+        if (numberOfElements == 0 || value < intArray[0]) {
+            i = 0;
+            return false;
+        } else if (value > intArray[numberOfElements - 1]) {
+            i = numberOfElements;
+            return false; 
+        }
+
         int lowerBound = 0;
         int upperBound = numberOfElements - 1;
 
