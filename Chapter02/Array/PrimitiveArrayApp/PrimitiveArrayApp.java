@@ -1,9 +1,7 @@
-// package com.github_jonikiro;
-
-public class TestArrayApp {
+public class PrimitiveArrayApp {
     public static void main(String[] args) {
-        TestArrayApp taa = new TestArrayApp();
-        taa.go();
+        PrimitiveArrayApp paa = new PrimitiveArrayApp();
+        paa.go();
     }
 
     public void go() {

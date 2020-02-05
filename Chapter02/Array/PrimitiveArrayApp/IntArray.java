@@ -1,5 +1,3 @@
-// package com.github_jonikiro;
-
 public class IntArray {
     protected int[] intArray;
     protected int numberOfElements;

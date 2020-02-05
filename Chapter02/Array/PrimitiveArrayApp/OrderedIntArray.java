@@ -1,5 +1,3 @@
-// package com.github_jonikiro;
-
 public class OrderedIntArray extends IntArray{
     public OrderedIntArray(int size) {
         super(size);
