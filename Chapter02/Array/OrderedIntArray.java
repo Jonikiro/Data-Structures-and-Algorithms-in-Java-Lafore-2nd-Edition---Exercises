@@ -1,3 +1,5 @@
+// package com.github_jonikiro;
+
 public class OrderedIntArray extends IntArray{
     public OrderedIntArray(int size) {
         super(size);
@@ -5,12 +7,10 @@ public class OrderedIntArray extends IntArray{
 
     @Override
     public void addElement(int value) {
-        if (numberOfElements == 0) {
-            intArray[numberOfElements] = value;
-        } else if (numberOfElements >= intArray.length) {
+        if (numberOfElements >= intArray.length) {
             System.out.println("Array is full.");
             return;
-        } else if (value > intArray[numberOfElements - 1]) {
+        } else if (numberOfElements == 0 || value > intArray[numberOfElements - 1]) {
             System.out.println("Value " + value + " not found.");
             intArray[numberOfElements] = value;
         } else if (searchElement(value)) {
@@ -38,6 +38,10 @@ public class OrderedIntArray extends IntArray{
                 System.out.println("Value " + value + " found.");
                 return true;
             } else if (lowerBound > upperBound) {
+                // 'i' needs to be adjusted so that the correct element is replaced
+                if (intArray[i] < value) {
+                    i++;
+                }
                 System.out.println("Value " + value + " not found.");
                 return false;
             } else {
